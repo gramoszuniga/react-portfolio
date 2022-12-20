@@ -5,6 +5,7 @@ import Header from './components/Header/Header'
 import About from './components/About/About'
 import Work from './components/Work/Work'
 import Education from './components/Education/Education'
+import Certifications from './components/Certifications/Certifications'
 import ScrollToTop from './components/ScrollToTop/ScrollToTop'
 import Footer from './components/Footer/Footer'
 import './App.css'
@@ -30,6 +31,7 @@ const App = () => {
               <Route exact path="/" element={<About />} />
               <Route path="/work" element={<Work />} />
               <Route path="/education" element={<Education />} />
+              <Route path='/certifications' element={<Certifications />} />
             </Routes>
           </main >
           <ScrollToTop />
