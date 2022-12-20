@@ -3,7 +3,7 @@ import '../Work/Work.css'
 
 const Education = () => (
     <div className='about center'>
-        <h2 className='work_title'>Education</h2>
+        <h2 className='work_title'>EDUCATION</h2>
         <h3 className='about__role'>
             Advanced Diploma in Computer Programming/Analysis (2015 - 2018)
         </h3>

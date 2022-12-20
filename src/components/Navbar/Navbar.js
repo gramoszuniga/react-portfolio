@@ -1,4 +1,5 @@
 import { useContext, useState } from 'react'
+import { Link } from "react-router-dom";
 import Brightness2Icon from '@material-ui/icons/Brightness2'
 import WbSunnyRoundedIcon from '@material-ui/icons/WbSunnyRounded'
 import MenuIcon from '@material-ui/icons/Menu'
@@ -15,16 +16,13 @@ const Navbar = () => {
     <nav className='center nav'>
       <ul style={{ display: showNavList ? 'flex' : null }} className='nav__list'>
         <li className='nav__list-item'>
-          <a href='#work' onClick={toggleNavList} className='link link--nav'>Work Experience</a>
+          <Link to='/work' onClick={toggleNavList} className='link link--nav'>Work Experience</Link>
         </li>
         <li className='nav__list-item'>
-          <a href='#education' onClick={toggleNavList} className='link link--nav'>Education</a>
+          <Link to='/education' onClick={toggleNavList} className='link link--nav'>Education</Link>
         </li>
         <li className='nav__list-item'>
-          <a href='#awards' onClick={toggleNavList} className='link link--nav'>Awards</a>
-        </li>
-        <li className='nav__list-item'>
-          <a href='#certifications' onClick={toggleNavList} className='link link--nav'>Certifications</a>
+          <Link to='/certifications' onClick={toggleNavList} className='link link--nav'>Certifications</Link>
         </li>
       </ul>
 
