@@ -20,4 +20,4 @@ const skills = [
   'UML'
 ]
 
-export { skills }
+export default skills

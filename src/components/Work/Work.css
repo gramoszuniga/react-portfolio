@@ -1,0 +1,19 @@
+h4 {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.work_title {
+    text-align: center;
+    width: 100%;
+}
+
+.work__list {
+    list-style-position: inside;
+    list-style-type: disc;
+}
+
+.work__list, .work__desc {
+    font-size: 1rem;
+    max-width: 600px;
+}
