@@ -4,8 +4,20 @@ Resources:
     Type: AWS::S3::Bucket
     DeletionPolicy: Retain
     Properties:
-      AccessControl: PublicRead
+      BucketEncryption: # Enable & Amazon S3-managed keys (SSE-S3) selected
+        ServerSideEncryptionConfiguration:
+          - ServerSideEncryptionByDefault:
+              SSEAlgorithm: AES256
       BucketName: s3-react-portfolio
+      ObjectLockEnabled: false
+      OwnershipControls: # ACLs disabled (recommended) selected
+        Rules:
+          - ObjectOwnership: BucketOwnerEnforced
+      PublicAccessBlockConfiguration: # Block all public access unticked
+        BlockPublicAcls: false
+        BlockPublicPolicy: false
+        IgnorePublicAcls: false
+        RestrictPublicBuckets: false
       WebsiteConfiguration:
         ErrorDocument: index.html
         IndexDocument: index.html
