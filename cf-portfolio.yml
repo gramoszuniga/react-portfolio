@@ -1,3 +1,6 @@
+# Author: Gonzalo Ramos Zúñiga
+# Since: 2022/12/28
+
 AWSTemplateFormatVersion: 2010-09-09
 Resources:
   PortfolioBucket:
@@ -37,13 +40,24 @@ Resources:
     Properties:
       DistributionConfig:
         DefaultCacheBehavior:
-          ForwardedValues:
-            QueryString: false
+          AllowedMethods:
+            - GET
+            - HEAD
+          CachePolicyId: 658327ea-f89d-4fab-a63d-7e88639e58f6 # CachingOptimized
+          Compress: true
+          SmoothStreaming: false
           TargetOriginId: PortfolioBucketOriginId
           ViewerProtocolPolicy: redirect-to-https
         Enabled: true
+        HttpVersion: http2and3
+        IPV6Enabled: true
         Origins:
-          - CustomOriginConfig:
+          - CustomOriginConfig: # S3 bucket with static website hosting selected
               OriginProtocolPolicy: http-only
-            DomainName: !Select [1, !Split ["//", !GetAtt PortfolioBucket.WebsiteURL]]
+            DomainName:
+              !Select [1, !Split ["//", !GetAtt PortfolioBucket.WebsiteURL]]
             Id: PortfolioBucketOriginId
+            OriginShield:
+              Enabled: true
+              OriginShieldRegion: us-east-1
+        PriceClass: PriceClass_All # Use all edge locations (best performance)
