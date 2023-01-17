@@ -2,9 +2,12 @@ import '../About/About.css'
 import '../About/Skills.css'
 import '../Work/Work.css'
 import CCP_BADGE_IMG from '../../img/aws-certified-cloud-practitioner.png';
+import CDA_BADGE_IMG from '../../img/aws-certified-developer-associate.png';
 
 const CCP_BADGE_URL = 'https://www.credly.com/badges/' +
     '7a0cf1bb-f168-4dc1-97bf-fc96e806356e/public_url';
+const CDA_BADGE_URL = 'https://www.credly.com/badges/' +
+    'cc08080d-a727-496b-883a-472f74b44403/public_url';
 
 const Certifications = () => (
     <div className='about center'>
@@ -19,15 +22,15 @@ const Certifications = () => (
                     </a>
                 </li>
                 <li className='badges__list-item badge badge--plain'>
-                    <a href={CCP_BADGE_URL}>
+                    <a href={CDA_BADGE_URL}>
                         <img style={{ width: '150px', height: '150px' }}
-                            src={CCP_BADGE_IMG} alt='CCP Badge' />
+                            src={CDA_BADGE_IMG} alt='CDA Badge' />
                     </a>
                 </li>
                 <li className='badges__list-item badge badge--plain'>
-                    <a href={CCP_BADGE_URL}>
+                    <a href={CDA_BADGE_URL}>
                         <img style={{ width: '150px', height: '150px' }}
-                            src={CCP_BADGE_IMG} alt='CCP Badge' />
+                            src={CDA_BADGE_IMG} alt='CDA Badge' />
                     </a>
                 </li>
             </ul>
