@@ -1,7 +1,7 @@
 import GitHubIcon from '@material-ui/icons/GitHub'
 import LinkedInIcon from '@material-ui/icons/LinkedIn'
 import uniqid from 'uniqid'
-import skills from '../../portfolio'
+import skills from './skills'
 import './About.css'
 import './Contact.css'
 import './Skills.css'

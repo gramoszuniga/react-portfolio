@@ -1,13 +1,8 @@
+import uniqid from 'uniqid'
+import badges from './badges'
 import '../About/About.css'
 import '../About/Skills.css'
 import '../Work/Work.css'
-import CCP_BADGE_IMG from '../../img/aws-certified-cloud-practitioner.png';
-import CDA_BADGE_IMG from '../../img/aws-certified-developer-associate.png';
-
-const CCP_BADGE_URL = 'https://www.credly.com/badges/' +
-    '7a0cf1bb-f168-4dc1-97bf-fc96e806356e/public_url';
-const CDA_BADGE_URL = 'https://www.credly.com/badges/' +
-    'cc08080d-a727-496b-883a-472f74b44403/public_url';
 
 const Certifications = () => (
     <div className='about center'>
@@ -15,24 +10,15 @@ const Certifications = () => (
         <h3 className='about__role work_title'>Amazon Web Services</h3>
         <section className='section__badges'>
             <ul className='badges__list'>
-                <li className='badges__list-item badge badge--plain'>
-                    <a href={CCP_BADGE_URL}>
-                        <img style={{ width: '150px', height: '150px' }}
-                            src={CCP_BADGE_IMG} alt='CCP Badge' />
-                    </a>
-                </li>
-                <li className='badges__list-item badge badge--plain'>
-                    <a href={CDA_BADGE_URL}>
-                        <img style={{ width: '150px', height: '150px' }}
-                            src={CDA_BADGE_IMG} alt='CDA Badge' />
-                    </a>
-                </li>
-                <li className='badges__list-item badge badge--plain'>
-                    <a href={CDA_BADGE_URL}>
-                        <img style={{ width: '150px', height: '150px' }}
-                            src={CDA_BADGE_IMG} alt='CDA Badge' />
-                    </a>
-                </li>
+                {badges.map((badge) => (
+                    <li key={uniqid()}
+                        className='badges__list-item badge badge--plain'>
+                        <a href={badge.url}>
+                            <img className='badge-img' src={badge.img}
+                                alt={badge.alt} />
+                        </a>
+                    </li>
+                ))}
             </ul>
         </section>
     </div>
