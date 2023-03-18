@@ -1,4 +1,4 @@
-import { useContext, useLayoutEffect } from 'react'
+import { useContext, useEffect, useLayoutEffect, useState } from 'react'
 import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import { ThemeContext } from './contexts/theme'
 import Header from './components/Header/Header'
@@ -10,16 +10,56 @@ import ScrollToTop from './components/ScrollToTop/ScrollToTop'
 import Footer from './components/Footer/Footer'
 import './App.css'
 
+const API_URL = process.env.REACT_APP_API_URL;
+const OKAY = 200;
+
 const Wrapper = ({ children }) => {
   const location = useLocation();
   useLayoutEffect(() => {
     document.documentElement.scrollTo(0, 0);
   }, [location.pathname]);
   return children
-}
+};
 
 const App = () => {
-  const [{ themeName }] = useContext(ThemeContext)
+  const [{ themeName }] = useContext(ThemeContext);
+  const [totalVisitors, setTotalVisitors] = useState(0);
+  useEffect(() => {
+    async function getTotalVisitors() {
+      try {
+        const response = await fetch(API_URL, {
+          method: 'GET'
+        });
+        if (response.status !== OKAY) {
+          throw Error('error');
+        }
+        setTotalVisitors((await response.json()).value);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+    async function updateTotalVisitors() {
+      try {
+        const response = await fetch(API_URL, {
+          method: 'PUT'
+        });
+        if (response.status !== OKAY) {
+          throw Error('error');
+        }
+        setTotalVisitors((await response.json()).value);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+    const localStorageItem = localStorage.getItem('hasVisited');
+    if (!localStorageItem) {
+      updateTotalVisitors();
+      localStorage.setItem('hasVisited', 'true');
+    } else {
+      getTotalVisitors();
+    }
+  }, []);
 
   return (
     <div id='top' className={`${themeName} app`}>
@@ -35,7 +75,7 @@ const App = () => {
             </Routes>
           </main >
           <ScrollToTop />
-          <Footer />
+          <Footer totalVisitors={totalVisitors} />
         </Wrapper>
       </BrowserRouter>
     </div >

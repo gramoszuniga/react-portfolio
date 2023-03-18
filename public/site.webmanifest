@@ -5,7 +5,7 @@
     "start_url": "/",
     "theme_color": "#000000",
     "background_color": "#000000",
-    "orientation": "vertical",
+    "orientation": "portrait",
     "display": "browser",
     "icons": [
         {
