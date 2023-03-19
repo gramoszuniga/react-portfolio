@@ -9,6 +9,11 @@ Static personal portfolio website.
 **Server:** React.js, CSS, HTML, JavaScript, Node.js, npm
 
 
+## Architecture
+
+![App Architecture](https://s3-diagrams.s3.amazonaws.com/portfolio-fe.png)
+
+
 ## Run Locally
 
 Clone the project
