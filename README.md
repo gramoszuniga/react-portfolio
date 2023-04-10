@@ -11,7 +11,7 @@ Static personal portfolio website.
 
 ## Architecture
 
-![App Architecture](https://s3-diagrams.s3.amazonaws.com/portfolio-fe.png)
+![App Architecture](https://assets.gramoszuniga.net/portfolio-fe.png)
 
 
 ## Run Locally
