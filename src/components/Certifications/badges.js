@@ -1,6 +1,6 @@
 import CCP_BADGE_IMG from '../../img/aws-certified-cloud-practitioner.png';
 import CDA_BADGE_IMG from '../../img/aws-certified-developer-associate.png';
-import ARCH_BADGE_IMG from '../../img/aws-learning-architecting.png';
+import CSAA_BADGE_IMG from '../../img/aws-certified-solutions-architect-associate.png';
 
 const badges = [
   {
@@ -16,10 +16,10 @@ const badges = [
     alt: 'AWS Certified Developer Associate Badge'
   },
   {
-    url: 'https://www.credly.com/badges/44966e46-d68e-4d22-b041-2ed116544a81/' +
+    url: 'https://www.credly.com/badges/6cd2c8eb-db29-4318-b144-71c59a170adc/' +
       'public_url',
-    img: ARCH_BADGE_IMG,
-    alt: 'AWS Learning: Architecting Badge'
+    img: CSAA_BADGE_IMG,
+    alt: 'AWS Certified Solutions Architect Associate'
   }
 ]
 
