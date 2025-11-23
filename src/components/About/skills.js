@@ -2,6 +2,7 @@ const skills = [
     'Java',
     'Spring Boot',
     'Maven',
+    'Apache Flink',
     'Apache Kafka',
     'REST',
     'Amazon Web Services',
